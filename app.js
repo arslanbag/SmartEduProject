@@ -10,7 +10,7 @@ const categoryRoute = require('./routes/categoryRoute')
 const userRoute = require('./routes/userRoute')
 const allRouteMiddleware = require('./middlewares/allRouteMiddleware')
 const app = express()
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 //Db Connect
 mongoose.set('strictQuery', true)
