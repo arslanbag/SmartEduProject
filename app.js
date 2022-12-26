@@ -13,8 +13,8 @@ const app = express()
 const port = 4000;
 
 //Db Connect
-const connectString = 'mongodb://127.0.0.1:27017/smartEdu-test-db'
 mongoose.set('strictQuery', true)
+const connectString = 'mongodb+srv://aykut:jGCKH75HR2UcfBsB@cluster0.eenteif.mongodb.net/smartEdu-db?retryWrites=true&w=majority'
 mongoose.connect(connectString).then(() => {console.log('Db baglantisi basarili')})
 
 //Template Engine
