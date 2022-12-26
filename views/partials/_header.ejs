@@ -1,8 +1,8 @@
 <header class="top-navbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="" />
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.png" alt="" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
@@ -13,36 +13,35 @@
                 <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active "><a class="nav-link" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+                    <% if(userIN){ %>
+                        <li class="nav-item"><a class="nav-link" href="/users/dashboard">Dashboard</a></li>
+                    <% } %>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="hover-btn-new log orange mr-2" href="login.html"><span><i class="fa fa-sign-in" aria-hidden="true"></i></span></a></li>
-                    <li><a class="hover-btn-new log orange" href="register.html"><span><i class="fa fa-user-plus" aria-hidden="true"></i></span></a></li>
+                <ul class="nav navbar-nav navbar-right"></ul>
+                <% if(!userIN){ %>
+                    <li class="right-item"><a class="hover-btn-new log orange mr-2" href="/login"><span><i class="fa fa-sign-in" aria-hidden="true"></i></span></a></li>
+                    <li class="right-item"><a class="hover-btn-new log orange" href="/register"><span><i class="fa fa-user-plus" aria-hidden="true"></i></span></a></li>
+                <% } else { %>
+                    <li class="right-item"><a class="hover-btn-new log orange mr-2" href="/users/logout"><span><i class="fa fa-sign-in" aria-hidden="true"></i></span></a></li>
+                <% } %>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<script>
-    const navItems = document.getElementsByClassName("nav-item");
-    let find = false;
-    for (i = 0; i < navItems.length; i++) 
-    {
-      
-        if(navItems[i].children[0].getAttribute('href') == window.location.pathname)
-        {
-            navItems[i].classList.add("active")
-            find = true;
-        }
+<script> 
+    const activeSystem = (className) => {
+        const items = document.getElementsByClassName(className);
+        for (i = 0; i < items.length; i++) 
+        if(items[i].children[0].getAttribute('href') == window.location.pathname)
+            items[i].classList.add("active")
         else
-        {
-            navItems[i].classList.remove("active");
-        }
-        
+            items[i].classList.remove("active");
     }
-    if(!find)
-        navItems[0].classList.add("active")
+
+    activeSystem('nav-item');
+    activeSystem('right-item');
 </script>

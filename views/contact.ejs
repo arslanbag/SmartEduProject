@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+		<!-- Start head -->
+        <%- include('partials/_head.ejs') -%>
+<body class="host_version"> 
+
+    <!-- Start loader -->
+    <%- include('partials/_loader.ejs') -%>
+    <!-- Start header -->
+    <%- include('partials/_header.ejs') -%>
+
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+		</div>
+	</div>
+	
+    <div id="contact" class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 mx-auto col-md-8 col-sm-8">
+                     <!-- start flash message -->
+                      <%- include('partials/_flashMessage.ejs') %>  
+                      
+                    <div class="contact_form">
+                        <div class="section-title text-center">
+                            <h3 class="color-white col-sm-9 mx-auto">Need Help ? <br> Sure we are Online!</h3>
+                            <p class="lead ">Let us give you more details about the special offer website you want us. Please fill out the form below.We have million of website owners who happy to work with us!</p>
+                        </div><!-- end title -->
+                        <div id="message"></div>
+                        <form id="contactform" class="" action="/contact" name="contactform" method="POST">
+                            <div class="row row-fluid ">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" name="name" id="first_name" class="form-control" placeholder="Your Name">
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                        <!-- start flash message Name -->
+                                        <%- include('partials/_flashMessage.ejs',{validationName : 'name'}) %> 
+                                </label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                        <!-- start flash message Name -->
+                                        <%- include('partials/_flashMessage.ejs',{validationName : 'email'}) %> 
+                                </label>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <textarea class="form-control" name="message" id="comments" rows="6" placeholder="Give us more details.."></textarea>
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                        <!-- start flash message Name -->
+                                        <%- include('partials/_flashMessage.ejs',{validationName : 'message'}) %> 
+                                </label>
+                                </div>
+                                <div style="padding-bottom: 80px;"></div>
+                                <div class="offset-9 col-lg-3 col-md-3 col-sm-3">
+                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">SEND</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    	
+    <!-- Start footer -->
+    <%- include('partials/_footer.ejs') -%>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<div class="row">
+<div class="course-br" style="width:100%">
+
+    <h2>Users</h2>
+    <table class="table">
+        <thead >
+            <tr>
+                <th scope="col">ID#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i< users.length; i++) { %>
+                <tr>
+                    <th scope="row" style="width:30%">
+                        <%= users[i]._id %>
+                    </th>
+                    <td>
+                        <%= users[i].email %>
+                    </td>
+                    <td>
+                        <%= users[i].role.toUpperCase() %>
+                    </td>
+                    <td style="width:  8.33%">
+                        <% if(users[i]._id.toString() != user._id.toString()){ %>
+                        <form method="POST" action="/users/<%=users[i]._id %>?_method=DELETE"
+                            style="float:left; margin-right: 3px;">
+                            <button class="btn btn-lg btn-danger text-white" style="font-size:14px" onclick="return confirm('ARE YOU SURE ?')">
+                                <span>DELETE</span></button>
+                        </form>
+                        <% } %>
+                    </td>
+                </tr>
+                <% } %>
+
+        </tbody>
+    </table>
+                    <!-- Modal Button Course Create -->
+                    <div class="offset-5 col-lg-11 text-center mb-4 ">
+                        <button class="btn btn-lg btn-warning rounded-0 text-white" href="#" data-toggle="modal"
+                            data-target="#course"><span>CREATE NEW
+                                COURSE ➕</span></button>
+                    </div>
+        
+                   <!-- Modal Course  Create-->
+                   <%- include('../partials/_addOrEditModal',{course : 'create'}) -%>
+</div>
+<h1>&nbsp</h1>
+<div class="course-br" style="width:100%">
+       
+    <h2>Categories</h2>
+    <table class="table">
+        <thead >
+            <tr>
+                <th scope="col">ID#</th>
+                <th scope="col">name</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i< categories.length; i++) { %>
+                <tr>
+                    <th scope="row" style="width:30%">
+                        <%= categories[i]._id %>
+                    </th>
+                    <td>
+                        <%= categories[i].name %>
+                    </td>
+                    <td style="width:  8.33%" >
+                        <% if(categories[i]._id.toString() != user._id.toString()){ %>
+                        <form method="POST" action="/categories/<%=categories[i]._id %>?_method=DELETE"
+                            style="float:left; margin-right: 3px;">
+                            <button class="btn btn-lg btn-danger text-white" style="font-size:14px" onclick="return confirm('ARE YOU SURE ?')">
+                                <span>DELETE</span></button>
+                        </form>
+                        <% } %>
+                    </td>
+                </tr>
+                <% } %>
+
+        </tbody>
+    </table>
+     <!-- Modal Button Category Create-->
+     <div class="offset-5 col-lg-11 text-center mb-4 ">
+        <button class="btn btn-lg btn-warning rounded-0 text-white" href="#" data-toggle="modal"
+            data-target="#category"><span>CREATE NEW
+                CATEGORY ➕</span></button>
+    </div>
+
+    <!-- Modal Form  Create-->
+        <%- include('../partials/_addCategoryModal') -%>
+</div>
+    <div class="row">
+        <div class="col-lg-12 blog-post-single">
+            <!-- blog author -->
+            <%- include('../partials/_blogAuthor.ejs') -%>
+        </div><!-- end col -->
+    </div><!-- end row -->
+
+
+</div><!-- end row -->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- Start head -->
+	<%- include('partials/_head.ejs') -%>
+<body class="host_version"> 
+
+    <!-- Start loader -->
+    <%- include('partials/_loader.ejs') -%>
+	<!-- Start header -->
+	<%- include('partials/_header.ejs') -%>
+
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1>Courses<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+		</div>
+	</div>
+	
+    <div id="overviews" class="section wb">
+        <div class="container">
+			<%- include('partials/_flashMessage') %>  
+            <div class="row"> 
+				
+                <div class="col-lg-9 blog-post-single">
+					<div class="row"> 
+
+					<% for(let i=0; i < courses.length;i++) {%>
+						<%- include('partials/_course.ejs', {i}) -%>
+					<% } %>	
+
+					</div><!-- end row -->
+					
+                </div><!-- end col -->
+				<div class="col-lg-3 col-12 right-single">
+					<div class="widget-search">
+						<!-- course search -->
+						<%- include('partials/_searchCourse.ejs') %>	
+					</div>
+					<div class="widget-categories">
+						<!-- categories -->
+						<%- include('partials/_categories.ejs') %>
+					</div>
+				</div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+	
+	<!-- Start footer -->
+	<%- include('partials/_footer.ejs') -%>
+
+</body>
+</html>

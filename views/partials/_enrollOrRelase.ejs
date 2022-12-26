@@ -1,0 +1,26 @@
+<% if(userIN){ %>
+    <% if(course.createdUser._id.toString() !== user._id.toString()){ %>
+        
+        <% const form = (user.courses.filter(e => e._id.toString() === course._id.toString()).length > 0)
+        ?  {color: 'danger', type : 'relase'}
+        :  {color: 'warning', type : 'enroll'} %>
+
+        <form method="POST" action="/courses/<%= form.type %>">
+            <input type="hidden" name="course_id" value="<%= course._id %>">
+            <button class="btn btn-lg btn-<%= form.color %> text-white"><span><%= form.type.toUpperCase() %></span></button>
+        </form>
+
+
+    <% }else{ %>
+        <form method="POST" action="/courses/<%=course.slug %>?_method=DELETE" style="float:left; margin-right: 3px;">
+            <button class="btn btn-lg btn-danger text-white" 
+                onclick="return confirm('ARE YOU SURE ?')" >
+                <span>DELETE</span></button>
+        </form>
+        <form style="float:left" onsubmit="return false">
+            <button class="btn btn-lg btn-info text-white" data-toggle="modal" data-target="#course<%= course._id %>"><span>EDIT</span></button>
+        </form>
+          <!-- Modal Form  Update-->
+          <%- include('../partials/_addOrEditModal',{mode : course}) -%>
+    <% } %>
+<% } %>

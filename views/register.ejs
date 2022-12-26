@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Start head -->
+    <%- include('partials/_head.ejs') -%>
+</head>
+<body class="host_version"> 
+
+      <!-- Start loader -->
+      <%- include('partials/_loader.ejs') -%>
+      <!-- Start header -->
+      <%- include('partials/_header.ejs') -%>
+	        <div class="container">
+            <div class="section-title text-center">
+            <div class="row m-5">
+                <div class="col-xl-9 mx-auto col-md-9 col-sm-9">
+                    <div class="contact_form">
+                         <h3 class="color-white col-sm-9 mx-auto">REGISTER FORM</h3>
+
+                      
+
+                        <form class="" name="contactform" method="post" action="users/signup">
+                            <div class="row row-fluid">
+
+							    <div class="offset-1 col-lg-10 col-md-10 col-sm-10 ">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                            <!-- start flash message Name -->
+                                            <%- include('partials/_flashMessage.ejs',{validationName : 'name'}) %> 
+                                    </label>
+                                </div>
+                       
+                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                        <!-- start flash message Name -->
+                                        <%- include('partials/_flashMessage.ejs',{validationName : 'email'}) %> 
+                                </label>
+                                </div>
+
+                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <label for="name"  class="col-lg-12 p-0 ">
+                                        <!-- start flash message Name -->
+                                        <%- include('partials/_flashMessage.ejs',{validationName : 'password'}) %> 
+                                </label>
+                                </div>
+
+                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+                                    <select class="form-control" name="role">
+                                        <option>student</option>
+                                        <option>teacher</option>
+                                    </select>
+                                </div>
+                                <div style="padding-bottom: 80px;">
+                                </div>
+                                <div class="offset-7 col-lg-4 col-md-4 col-sm-4">
+                                    <button type="submit" value="LOGIN" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">REGISTER</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+	 </div><!-- end container -->
+	
+    <!-- Start footer -->
+    <%- include('partials/_footer.ejs') -%>
+
+	<script src="js/timeline.min.js"></script>
+	<script>
+		timeline(document.querySelectorAll('.timeline'), {
+			forceVerticalMode: 700,
+			mode: 'horizontal',
+			verticalStartPosition: 'left',
+			visibleItems: 4
+		});
+	</script>
+</body>
+</html>

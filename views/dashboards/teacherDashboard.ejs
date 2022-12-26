@@ -1,0 +1,25 @@
+        <div class="row">
+            <!-- Modal Button -->
+            <div class="offset-5 col-lg-11 text-center mb-4 ">
+                <button class="btn btn-lg btn-warning rounded-0 text-white" href="#" data-toggle="modal"
+                    data-target="#course"><span>CREATE NEW
+                        COURSE ➕</span></button>
+            </div>
+
+           <!-- Modal Form  Create-->
+           <%- include('../partials/_addOrEditModal',{course : 'create'}) -%>
+
+
+            <% for (let i=0; i< courses.length; i++) { %>
+                <%- include('../partials/_course', {i}) -%>
+            <% } %>
+            
+            <div class="row">
+                <div class="col-lg-12 blog-post-single">
+                    <!-- blog author -->
+                    <%- include('../partials/_blogAuthor') -%>
+                </div><!-- end col -->
+            </div><!-- end row -->
+            
+
+        </div><!-- end row -->

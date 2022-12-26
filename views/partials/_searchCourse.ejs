@@ -1,0 +1,10 @@
+
+<% const pageL = (typeof page === 'undefined') ? 'courses' : page%>
+<div class="site-search-area">
+    <form method="get" id="site-searchform" action="/<%= pageL %>">
+        <div>
+            <input class="input-text form-control" name="search" id="search-k" placeholder="Search..." type="text">
+            <button id="searchsubmit" value="Search" type="submit"></button>
+        </div>
+    </form>
+</div>

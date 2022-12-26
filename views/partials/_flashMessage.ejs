@@ -1,0 +1,40 @@
+<% if (flashMessages) { %>
+ 
+    <% if (flashMessages.success) { %>
+
+        <div class="alert alert-success">
+            <%= flashMessages.success %>
+        </div>
+
+    <% }else if (flashMessages.error){ %>
+
+
+        <% if (typeof flashMessages.error  === "string") { %>
+            
+                <div class="alert alert-danger">
+                    <%= flashMessages.error %>
+                </div>
+
+        <% } else { %>
+
+            <% for(let i=0; i < flashMessages.error.length;i++) {%>
+
+                <% if (typeof validationName === "undefined" || flashMessages.error[i].validate == validationName  ) { %>
+                  
+                    <div class="alert alert-danger">
+                        <% if (typeof flashMessages.error[i].msg !== 'undefined') { %>
+                            <%= flashMessages.error[i].msg %>
+                        <% }else { %>
+                            <%= flashMessages.error[i] %>
+                        <% } %>
+                    </div>
+
+                <% } %>
+
+            <% } %>
+
+        <% } %>
+
+    <% } %>
+
+<% } %>
